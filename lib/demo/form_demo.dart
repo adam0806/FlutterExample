@@ -4,6 +4,14 @@ class FormDemo extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: new IconButton(
+            icon: new Icon(Icons.arrow_back_ios),
+            onPressed: () => Navigator.of(context).pop()
+        ),
+        title: Text('FormDemo'),
+        elevation: 0.0,
+      ),
       body: Theme(
         data: ThemeData(
           primaryColor: Colors.black,
