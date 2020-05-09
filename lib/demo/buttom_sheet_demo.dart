@@ -35,6 +35,7 @@ class ButtomSheetDemoSate extends State<ButtomSheetDemo>{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _bottomSheetScaffoldKey,
       appBar: AppBar(
         title: Text('ButtomSheetDemo'),
         elevation: 0.0,
