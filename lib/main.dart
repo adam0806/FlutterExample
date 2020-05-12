@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'demo/basic_demo.dart';
-import 'demo/bottom_navigationbar_demo.dart';
-import 'demo/drawer_demo.dart';
-import 'demo/listview_demo.dart';
-import 'demo/hello_demo.dart';
-import 'demo/layout_demo.dart';
-import 'demo/view_demo.dart';
-import 'demo/sliver_demo.dart';
-import 'demo/navigator_demo.dart';
-import 'demo/form_demo.dart';
-import 'demo/material_components.dart';
+import 'demo/demo1/basic_demo.dart';
+import 'demo/demo1/bottom_navigationbar_demo.dart';
+import 'demo/demo1/drawer_demo.dart';
+import 'demo/demo1/listview_demo.dart';
+import 'demo/demo1/hello_demo.dart';
+import 'demo/demo1/layout_demo.dart';
+import 'package:flutter_app/demo/demo1/view_demo.dart';
+import 'package:flutter_app/demo/demo1/sliver_demo.dart';
+import 'demo/demo1/navigator_demo.dart';
+import 'demo/demo1/form_demo.dart';
+import 'demo/demo1/material_components.dart';
+import 'demo/demo2/state_management_demo.dart';
 
 void main() => runApp(App());
 class App extends StatelessWidget{
@@ -19,13 +20,14 @@ class App extends StatelessWidget{
       debugShowCheckedModeBanner: false,
 //      home: NavigatorDemo(),
 //      home:Home(),
-      initialRoute: '/mdc',
+      initialRoute: '/state-management',
       routes: {
 //        '/':(context) => NavigatorDemo(),
 //        '/':(context) => ListViewDemo(),
         '/about':(context) => Page(title:'About'),
         '/form': (context) => FormDemo(),
         '/mdc': (context) => MaterialComponents(),
+        '/state-management': (context) => StateManagementDemo(),
       },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
