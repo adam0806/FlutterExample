@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'demo/bottom_navigationbar_demo.dart';
-import 'demo/drawer_demo.dart';
-import 'demo/listview_demo.dart';
-import 'demo/hello_demo.dart';
+import '../bottom_navigationbar_demo.dart';
+import '../drawer_demo.dart';
+import '../listview_demo.dart';
+import '../hello_demo.dart';
 void main() => runApp(App());
 //drawer, tab, bottomNavigation
 class App extends StatelessWidget{
