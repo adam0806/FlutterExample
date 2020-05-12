@@ -32,6 +32,41 @@ class ButtomSheetDemoSate extends State<ButtomSheetDemo>{
       });
   }
 
+  Future _openModalBottomSheet() async {
+    final option = await showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context){
+          return Container(
+            height: 200.0,
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: Text('Option A'),
+                  onTap: (){
+                    Navigator.pop(context, 'A');
+                  },
+                ),
+                ListTile(
+                  title: Text('Option B'),
+                  onTap: (){
+                    Navigator.pop(context, 'B');
+                  },
+                ),
+                ListTile(
+                  title: Text('Option C'),
+                  onTap: (){
+                    Navigator.pop(context, 'C');
+                  },
+                ),
+              ],
+            ),
+          );
+        }
+    );
+
+    print(option);
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +86,10 @@ class ButtomSheetDemoSate extends State<ButtomSheetDemo>{
                   FlatButton(
                     child: Text('Open BottomSheet'),
                     onPressed: _openBottomSheet,
+                  ),
+                  FlatButton(
+                    child: Text('Modal BottomSheet'),
+                    onPressed: _openModalBottomSheet,
                   ),
               ]
             )
