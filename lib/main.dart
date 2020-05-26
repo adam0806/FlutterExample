@@ -45,7 +45,7 @@ class App extends StatelessWidget{
       debugShowCheckedModeBanner: false,
 //      home: NavigatorDemo(),
 //      home:Home(),
-      initialRoute: '/test',
+      initialRoute: '/mdc',
       routes: {
 //        '/':(context) => NavigatorDemo(),
 //        '/':(context) => ListViewDemo(),

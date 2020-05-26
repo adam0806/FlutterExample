@@ -21,12 +21,38 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+static def getDateTime() {
+    def date = new Date()
+    // 不能用冒号
+    def formattedDate = date.format('yyyyMMdd_HHmm')
+    return formattedDate
+}
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 28
+
+    signingConfigs {
+        release {
+            keyAlias localProperties['KEY_ALIAS']
+            keyPassword localProperties['KEY_PASSWORD']
+            storeFile file(localProperties['KEYSTORE_FILE'])
+            storePassword localProperties['KEYSTORE_PASSWORD']
+        }
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                output ->
+                    def outputFile = output.outputFile
+                    if (outputFile.name.contains("release")) {
+                        outputFileName = "adamapp-${variant.versionName}-${variant.versionCode}_${getDateTime()}.apk"
+                    }
+            }
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
