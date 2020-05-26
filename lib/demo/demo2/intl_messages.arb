@@ -1,0 +1,17 @@
+{
+  "@@last_modified": "2020-05-21T10:23:02.566909",
+  "title": "hello",
+  "@title": {
+    "description": "demo localizations.",
+    "type": "text",
+    "placeholders": {}
+  },
+  "greet": "hello {name}",
+  "@greet": {
+    "description": "greet someone.",
+    "type": "text",
+    "placeholders": {
+      "name": {}
+    }
+  }
+}

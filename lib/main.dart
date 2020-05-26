@@ -10,17 +10,42 @@ import 'package:flutter_app/demo/demo1/sliver_demo.dart';
 import 'demo/demo1/navigator_demo.dart';
 import 'demo/demo1/form_demo.dart';
 import 'demo/demo1/material_components.dart';
+import 'demo/demo2/demo_localizations.dart';
+import 'demo/demo2/intl_demo_localizations.dart';
 import 'demo/demo2/state_management_demo.dart';
+import 'demo/demo2/stream_demo.dart';
+import 'demo/demo2/rxdart_demo.dart';
+import 'demo/demo2/bloc_demo.dart';
+import 'demo/demo2/http_demo.dart';
+import 'demo/demo2/animation_demo.dart';
+import 'demo/demo2/i18n_demo.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'demo/demo2/test_demo.dart';
 void main() => runApp(App());
 class App extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      locale: Locale('zh', 'CN'),//可初始化某個地區及語言
+//      locale: Locale('en', 'US'),//可初始化某個地區及語言
+//      localeListResolutionCallback: (List<Locale> locales, Iterable<Locale> supportedLocales){//可初始化某個地區及語言
+//        return Locale('en', 'US');
+//      },
+      localizationsDelegates: [
+        IntlDemoLocalizationsDelegate(),
+//        DemoLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,//本地化字串
+        GlobalWidgetsLocalizations.delegate,//根據語言自動切換文字方向, 左而右或右而左
+      ],
+      supportedLocales: [
+        Locale('en', 'US'),//語言, 地區, 沒找到地區會用該語言的, 若語言也沒找到, 會取第一個項目
+        Locale('zh', 'CN'),
+      ],
       debugShowCheckedModeBanner: false,
 //      home: NavigatorDemo(),
 //      home:Home(),
-      initialRoute: '/state-management',
+      initialRoute: '/test',
       routes: {
 //        '/':(context) => NavigatorDemo(),
 //        '/':(context) => ListViewDemo(),
@@ -28,6 +53,14 @@ class App extends StatelessWidget{
         '/form': (context) => FormDemo(),
         '/mdc': (context) => MaterialComponents(),
         '/state-management': (context) => StateManagementDemo(),
+        '/stream': (context) => StreamDemo(),
+        '/rxdart': (context) => RxDartDemo(),
+        '/bloc': (context) => BlocDemo(),
+        '/http': (context) => HttpDemo(),
+        '/animation': (context) => AnimationDemo(),
+        '/I18n': (context) => I18nDemo(),
+        '/test': (context) => TestDemo(),
+
       },
       theme: ThemeData(
         primarySwatch: Colors.yellow,
